@@ -17,9 +17,14 @@ public class BallController : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
+
+    private Vector3 originalScale; // 用于存储原始尺寸
+    public Vector3 squareScale = new Vector3(1, 1, 1);
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        originalScale = transform.localScale; // 在开始时保存原始尺寸
+
     }
 
     private void Update()
@@ -33,7 +38,16 @@ public class BallController : MonoBehaviour
         {
             Jump();
         }
-
+        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+        {
+            // 按下 Ctrl 时变成正方形
+            transform.localScale = squareScale;
+        }
+        else
+        {
+            // 松开 Ctrl 时恢复原始尺寸
+            transform.localScale = originalScale;
+        }
    
     }
 
