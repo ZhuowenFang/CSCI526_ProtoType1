@@ -8,16 +8,21 @@ public class GameController : MonoBehaviour
 {
     public Button restartButtonLeft; // 在Inspector中设置这个按钮
     public GameObject gameOverPanel;
+    public GameObject victoryPanel;
     public Button restartButton; // 在Inspector中设置这个按钮
+    public Button victoryButton;
     public Transform characterTransform; // 方块的 Transform 组件
     public float rayLength = 1f; // 射线检测的长度
     public LayerMask detectLayer; // 射线检测的层
 
     void Start()
     {
+        Debug.Log("Start");
         gameOverPanel.SetActive(false);
+        victoryPanel.SetActive(false);
         restartButtonLeft.onClick.AddListener(RestartGame);
         restartButton.onClick.AddListener(RestartGame);
+        victoryButton.onClick.AddListener(RestartGame);
     }
 
     void Update()
@@ -44,6 +49,12 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void victory()
+    {
+        victoryPanel.SetActive(true);
         Time.timeScale = 0f;
     }
 

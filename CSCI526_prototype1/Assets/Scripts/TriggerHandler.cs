@@ -10,7 +10,13 @@ public class TriggerHandler : MonoBehaviour
     {
         if (other.CompareTag("Obstacle") && gameController != null)
         {
+            Debug.Log(other.gameObject.name + " : " + gameObject.name);
             gameController.GameOver();
+        }
+        if (other.CompareTag("Finish") && gameController != null)
+        {
+            Debug.Log(other.gameObject.name + ": Victory");
+            gameController.victory();
         }
     }
 }
