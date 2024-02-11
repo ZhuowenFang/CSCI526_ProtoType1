@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         // 检测方块是否掉到某个位置以下
-        if (characterTransform.position.y < -7) // 假设游戏结束的条件是方块的y坐标小于-7
+        if (characterTransform.position.y < -17) // 假设游戏结束的条件是方块的y坐标小于-7
         {
             GameOver();
         }

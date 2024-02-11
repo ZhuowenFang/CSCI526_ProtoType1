@@ -20,6 +20,10 @@ public class BallController : MonoBehaviour
 
     private Vector3 originalScale; // 用于存储原始尺寸
     public Vector3 squareScale = new Vector3(1, 1, 1);
+
+    public BoxCollider2D childCollider; // 在 Inspector 中设置这个，拖拽子对象的 BoxCollider2D 到这里
+    public Vector2 expandedSize = new Vector2(0.03301108f, 0.3f); // 按下空格时 BoxCollider2D 的大小
+    public Vector2 originalSize = new Vector2(0.03301108f, 0.8f);
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
